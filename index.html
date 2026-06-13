@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Untitled</title>
+    
+
+  </head>
+    
+  <body>
+  <!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <title>Dedicated for Gray</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght=400..700&family=Fredoka:wght@300..700&display=swap');
+
+        .bg-original {
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="350" viewBox="0 0 200 350"><rect width="200" height="350" fill="%23cbe8b4"/><g transform="translate(10, 20)"><path d="M40,10 C70,10 80,50 76,90 C70,120 56,130 40,130 C24,130 10,120 4,90 C-2,50 10,10 40,10 Z" fill="%23689f38"/><path d="M40,16 C64,16 72,50 68,86 C64,112 52,122 40,122 C28,122 16,112 12,86 C8,50 16,16 40,16 Z" fill="%238bc34a"/><path d="M40,22 C58,22 66,50 62,82 Q56,114 40,114 Q24,114 18,82 C14,50 22,22 40,22 Z" fill="%23aed581"/><circle cx="40" cy="84" r="18" fill="%23795548"/><ellipse cx="34" cy="80" r="14" rx="14" ry="16" fill="%235d4037"/><circle cx="28" cy="54" r="3" fill="%23000" stroke="%23fff" stroke-width="0.5"/><circle cx="52" cy="54" r="3" fill="%23000" stroke="%23fff" stroke-width="0.5"/><ellipse cx="22" cy="62" rx="5" ry="3" fill="%23ff8a80" opacity="0.7"/><ellipse cx="58" cy="62" rx="5" ry="3" fill="%23ff8a80" opacity="0.7"/><path d="M34,66 Q40,62 46,66" stroke="%230" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M22,46 Q28,44 32,48" stroke="%230" stroke-width="2" fill="none"/><path d="M58,46 Q52,44 48,48" stroke="%230" stroke-width="2" fill="none"/></g><g transform="translate(110, 180) scale(0.85)"><path d="M40,10 C70,10 80,50 76,90 C70,120 56,130 40,130 C24,130 10,120 4,90 C-2,50 10,10 40,10 Z" fill="%23689f38"/><path d="M40,16 C64,16 72,50 68,86 C64,112 52,122 40,122 C28,122 16,112 12,86 C8,50 16,16 40,16 Z" fill="%238bc34a"/><path d="M40,22 C58,22 66,50 62,82 Q56,114 40,114 Q24,114 18,82 C14,50 22,22 40,22 Z" fill="%23aed581"/><circle cx="40" cy="84" r="18" fill="%23795548"/><circle cx="32" cy="56" r="3" fill="%23000"/><circle cx="48" cy="56" r="3" fill="%23000"/><ellipse cx="24" cy="64" rx="4" ry="2" fill="%23ff8a80" opacity="0.7"/><ellipse cx="56" cy="64" rx="4" ry="2" fill="%23ff8a80" opacity="0.7"/><path d="M36,70 Q40,74 44,70" stroke="%230" stroke-width="2" fill="none"/><path d="M24,48 Q30,52 34,48" stroke="%230" stroke-width="1.5" fill="none"/><path d="M56,48 Q50,52 46,48" stroke="%230" stroke-width="1.5" fill="none"/></g><circle cx="150" cy="80" r="8" fill="%23fff" opacity="0.9"/><circle cx="150" cy="80" r="5" fill="%23fff" opacity="0.4"/><path d="M145,80 Q150,73 155,80 Q150,87 145,80" fill="%23fff" opacity="0.5"/><circle cx="60" cy="240" r="8" fill="%23fff" opacity="0.9"/><circle cx="40" cy="300" r="3" fill="%23689f38"/><circle cx="45" cy="310" r="2" fill="%23689f38"/><circle cx="35" cy="315" r="2.5" fill="%23689f38"/><circle cx="130" cy="40" r="3" fill="%23689f38"/><circle cx="138" cy="48" r="2" fill="%23689f38"/><circle cx="125" cy="52" r="2.5" fill="%23689f38"/></svg>');
+            background-size: 160px 280px;
+            background-repeat: repeat;
+        }
+
+        body { 
+            font-family: 'Cairo', 'Fredoka', sans-serif; 
+            display: flex; flex-direction: column; align-items: center; justify-content: center; 
+            height: 100vh; margin: 0; overflow: hidden;
+            position: relative;
+            transition: background 1s ease;
+        }
+
+        .stage, #wheel-container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 25px; 
+            border-radius: 40px; 
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15); 
+            backdrop-filter: blur(10px);
+            border: 4px solid #fff;
+            width: 90%;
+            max-width: 440px;
+            box-sizing: border-box;
+            position: relative;
+            z-index: 5;
+        }
+
+        #intro-stage { display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 6; }
+        #stage1, #ask-stage, #wheel-container, #part2-stage, #pre-final-stage, #final-greetings { display: none; }
+
+        h2 { font-size: 1.6rem; color: #3e2723; margin: 0 0 15px 0; font-weight: 700; }
+        p { font-size: 0.9rem; color: #555; margin-bottom: 20px; }
+
+        .btn-container { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 15px; position: relative; }
+        
+        button { padding: 12px 24px; font-size: 1.1rem; font-family: 'Cairo', sans-serif; cursor: pointer; border: none; border-radius: 30px; font-weight: 700; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); box-shadow: 0 5px 0 rgba(0,0,0,0.1); position: relative; z-index: 10; }
+
+        #continue-btn { background: #b0bec5; color: #fff; cursor: not-allowed; box-shadow: 0 5px 0 #78909c; position: relative; }
+
+        .hand-slap { position: absolute; font-size: 3.5rem; top: -150px; left: 42%; opacity: 0; transform: rotate(0deg); pointer-events: none; z-index: 100; }
+
+        @keyframes handSlapHit {
+            0% { top: -150px; opacity: 0; transform: rotate(0deg) scale(1.5); }
+            30% { opacity: 1; }
+            70% { top: 45px; transform: rotate(-20deg) scale(1); filter: drop-shadow(0 5px 5px rgba(0,0,0,0.3)); }
+            80% { top: 50px; transform: rotate(-25deg) scale(0.9); }
+            100% { top: 120px; opacity: 0; transform: rotate(-45deg) scale(0.8); }
+        }
+
+        @keyframes btnExplode {
+            0% { transform: scale(1); background: #b0bec5; }
+            50% { transform: scale(1.2); background: #e53935; box-shadow: 0 0 20px #e53935; }
+            100% { transform: scale(0); opacity: 0; }
+        }
+
+        button:active:not(#continue-btn):not(#no-btn):not(#p2-no) { transform: translateY(3px); box-shadow: 0 2px 0 rgba(0,0,0,0.1); }
+
+        #bad { background: #ff8a80; color: #fff; }
+        #normal { background: #ffd54f; color: #5d4037; }
+        #good { background: #81c784; color: #fff; }
+        #great { background: #4fc3f7; color: #fff; }
+        
+        #yes-btn { background: #4caf50; color: white; box-shadow: 0 5px 0 #388e3c; min-width: 100px; position: absolute; left: 40px; top: 40px; }
+        #no-btn { background: #f44336; color: white; box-shadow: 0 5px 0 #d32f2f; min-width: 100px; position: absolute; left: 220px; top: 40px; transition: left 0.15s ease, top 0.15s ease; z-index: 20; }
+
+        #wheel-continue-btn { background: #ab47bc; color: white; box-shadow: 0 5px 0 #7b1fa2; width: 85%; margin: 15px auto 0 auto; display: none; z-index: 30; }
+        
+        #p2-yes { background: #ff9800; color: white; box-shadow: 0 5px 0 #f57c00; min-width: 110px; }
+
+        #p2-no { 
+            background: #e53935; 
+            color: white; 
+            box-shadow: 0 5px 0 #b71c1c; 
+            min-width: 110px; 
+            position: relative; 
+            pointer-events: auto;
+            animation: temptingGlow 1.2s infinite alternate cubic-bezier(0.45, 0, 0.55, 1);
+        }
+
+        @keyframes temptingGlow {
+            0% { transform: scale(1); box-shadow: 0 5px 0 #b71c1c, 0 0 5px rgba(229, 57, 53, 0.4); }
+            100% { transform: scale(1.08); box-shadow: 0 5px 0 #b71c1c, 0 0 20px rgba(229, 57, 53, 0.8), 0 0 30px rgba(229, 57, 53, 0.4); }
+        }
+        
+        .hand-pointer { font-size: 1.8rem; display: inline-block; animation: pointingHand 0.6s infinite alternate; vertical-align: middle; margin-right: 5px; }
+        @keyframes pointingHand {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-10px); }
+        }
+
+        .wheel-stand { width: 60px; height: 25px; background: #222; margin: -5px auto 0 auto; border-radius: 4px 4px 0 0; box-shadow: 0 4px 6px rgba(0,0,0,0.2); position: relative; z-index: 2; }
+        .pointer { width: 0; height: 0; border-left: 16px solid transparent; border-right: 16px solid transparent; border-top: 30px solid #e53935; position: absolute; top: -10px; left: calc(50% - 16px); z-index: 20; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3)); }
+        .canvas-container { position: relative; width: 330px; height: 330px; margin: 0 auto; z-index: 1; }
+        canvas { max-width: 100%; height: auto; display: block; }
+        #result { margin-top: 15px; font-size: 1.3rem; font-weight: bold; color: #d81b60; line-height: 1.5; min-height: 40px; position: relative; z-index: 25; }
+        #spin-btn { margin-top: 10px; background: #e53935; color: white; width: 85%; box-shadow: 0 5px 0 #b71c1c; z-index: 30; }
+        #retry-btn { margin-top: 10px; background: #1e88e5; color: white; display: none; width: 85%; box-shadow: 0 5px 0 #0d47a1; z-index: 30; }
+
+        #show-greetings-btn { background: #4caf50; color: #fff; box-shadow: 0 5px 0 #388e3c; margin-top: 15px; }
+
+        #final-greetings {
+            color: #fff;
+            background: rgba(20, 10, 10, 0.95);
+            border: 4px solid #ff4081;
+            box-shadow: 0 0 30px rgba(255, 64, 129, 0.6);
+            border-radius: 30px;
+            padding: 35px 25px;
+            max-width: 500px;
+            width: 85%;
+        }
+        #final-greetings h1 { font-family: 'Fredoka', sans-serif; color: #ff4081; font-size: 2.2rem; margin-bottom: 15px; text-shadow: 0 0 10px rgba(255,64,129,0.4); }
+        #final-greetings p { color: #f5f5f5; font-size: 1.2rem; line-height: 1.7; font-family: 'Cairo', sans-serif; font-weight: 600; }
+
+        .rose-petal {
+            position: absolute;
+            top: -20px;
+            pointer-events: none;
+            font-size: 1.5rem;
+            z-index: 1;
+            animation: fall linear infinite;
+        }
+        @keyframes fall {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(105vh) rotate(360deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body class="bg-original">
+
+    <div id="intro-stage" class="stage">
+        <h2>Exclusive for Gray 🤫</h2>
+        <p>This design is built with blood and sweat, specifically for you only.</p>
+        <div style="position: relative; width: 100%; margin-top: 20px;">
+            <div id="slapHand" class="hand-slap">✋</div>
+            <button id="continue-btn" onmouseover="startSlap()" onclick="startSlap()" ontouchstart="startSlap()">Continue</button>
+        </div>
+    </div>
+
+    <div id="stage1" class="stage">
+        <h2>How was your year, Gray? ✨</h2>
+        <div id="msg" style="height: 45px; color: #d81b60; font-weight: bold; font-size: 1.1rem; margin-top: 5px;"></div>
+        <div class="btn-container">
+            <button id="bad" onclick="hideBtn('bad')">Terrible 😢</button>
+            <button id="normal" onclick="hideBtn('normal')">Just normal 😐</button>
+            <button id="good" onclick="goAskStage()">Good 😊</button>
+            <button id="great" onclick="goAskStage()">Great 🤩</button>
+        </div>
+    </div>
+
+    <div id="ask-stage" class="stage">
+        <h2>Do you want to see your luck for the New Year? 🤔</h2>
+        <div id="ask-msg" style="height: 50px; color: #6a1b9a; font-weight: bold; font-size: 1.05rem; margin-top: 5px;">We are all curious, we must know! 🤓</div>
+        <div class="btn-container" style="position: relative; height: 140px; width: 100%; margin-top: 10px;">
+            <button id="yes-btn" onclick="goWheel()">Yes 👍</button>
+            <button id="no-btn" onmouseover="flyNo()" onclick="flyNo()" ontouchstart="flyNo()">No 👎</button>
+        </div>
+    </div>
+
+    <div id="wheel-container">
+        <h2>Wheel of Fortune 🎡</h2>
+        <div class="canvas-container">
+            <div class="pointer"></div>
+            <canvas id="wheel" width="330" height="330"></canvas>
+        </div>
+        <div class="wheel-stand"></div>
+        <div id="result"></div>
+        <button id="spin-btn" onclick="spin()">Start Spinning! 🎯</button>
+        <button id="retry-btn" onclick="spin()">Try again 🦄</button>
+        <button id="wheel-continue-btn" onclick="goPart2Stage()">Continue ➡️</button>
+    </div>
+
+    <div id="part2-stage" class="stage">
+        <h2>Do you want Part 2? 👀</h2>
+        <div id="p2-msg" style="height: 55px; color: #e65100; font-weight: bold; font-size: 1.1rem; margin-top: 5px;">Choose wisely! 📢</div>
+        <div class="btn-container" style="align-items: center; justify-content: center;">
+            <button id="p2-yes" onclick="showPreFinal('yes')">Yes</button>
+            <div style="display: inline-block; white-space: nowrap;">
+                <span class="hand-pointer">👉</span>
+                <button id="p2-no" onclick="showPreFinal('no')">No</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="pre-final-stage" class="stage">
+        <h2>System Notification 📢</h2>
+        <div id="pre-final-msg" style="font-size: 1.2rem; font-weight: bold; margin: 15px 0; min-height: 50px;"></div>
+        <button id="show-greetings-btn" onclick="triggerFinalGreetings()">Show Me</button>
+    </div>
+
+    <div id="final-greetings" class="stage">
+        <h1>Happy Birthday! 🎉🌹</h1>
+        <p>I hope it's filled with happiness and beautiful memories for you! ✨</p>
+    </div>
+
+    <script>
+        let attempt = 0, isSpinning = false, handSlapped = false;
+        const canvas = document.getElementById('wheel'), ctx = canvas.getContext('2d');
+        const segments = ["Gold 👑", "No Luck 📉", "Very Lucky ⭐", "Error 404 ❌", "Success 🚀", "Funny bad luck 😂", "Jackpot! 🎰", "Not your day 🦽"];
+        const colors = ["#e53935", "#ffffff", "#e53935", "#ffffff", "#e53935", "#ffffff", "#e53935", "#ffffff"];
+
+        const goodIndices = [0, 4];
+        const badIndices = [1, 3, 5, 7];
+
+        const funnyPhrases = [
+            "You can't catch me! 😂", "Nope, absolutely impossible! 😜", "No chance escaping this! 🤫",
+            "We all must know, just click Yes! 👀", "Come on, don't be a party pooper! 🧠",
+            "This 'No' button is just for display 😉", "In your dreams, Gray! 💀", "Missed me again! 🏃‍♂️💨",
+            "Give up already! 🛑", "Why are you so stubborn? 🤣", "Error: No button out of reach! ❌",
+            "Nice try, speedy! 🐢", "Are you lagging or what? 👾", "Click Yes, you know you want to! 😏",
+            "My grandmother is faster than you! 👵", "Stop fighting your destiny! 🔮", "You shall not pass! 🧙‍♂️",
+            "Still trying? Cute. 🥺", "Clicking 'No' is strictly prohibited! 🚫", "Loading victory... Not for you! 🤪"
+        ];
+
+        function startSlap() {
+            if(handSlapped) return;
+            handSlapped = true;
+            document.getElementById('slapHand').style.animation = "handSlapHit 0.8s forwards ease-in";
+            setTimeout(() => { document.getElementById('continue-btn').style.animation = "btnExplode 0.4s forwards"; }, 550);
+            setTimeout(() => { document.getElementById('intro-stage').style.display = 'none'; document.getElementById('stage1').style.display = 'block'; }, 1100);
+        }
+
+        function hideBtn(id) {
+            document.getElementById('msg').innerHTML = "You had a bad year just because you met me! 😢";
+            document.getElementById(id).style.transform = "scale(0)";
+            setTimeout(() => { document.getElementById(id).style.display = "none"; }, 300);
+        }
+
+        function goAskStage() {
+            document.getElementById('stage1').style.display = 'none';
+            document.getElementById('ask-stage').style.display = 'block';
+        }
+
+        function flyNo() {
+            const noBtn = document.getElementById('no-btn');
+            const yesBtn = document.getElementById('yes-btn');
+            const msgDiv = document.getElementById('ask-msg');
+            
+            msgDiv.innerText = funnyPhrases[Math.floor(Math.random() * funnyPhrases.length)];
+
+            const container = noBtn.parentElement;
+            const maxX = container.clientWidth - noBtn.clientWidth;
+            const maxY = container.clientHeight - noBtn.clientHeight;
+
+            let randomX, randomY, overlapping = true;
+            while (overlapping) {
+                randomX = Math.floor(Math.random() * maxX);
+                randomY = Math.floor(Math.random() * (maxY - 10)) + 10;
+                if (Math.abs(randomX - yesBtn.offsetLeft) > 110 || Math.abs(randomY - yesBtn.offsetTop) > 50) {
+                    overlapping = false;
+                }
+            }
+            noBtn.style.left = randomX + "px";
+            noBtn.style.top = randomY + "px";
+        }
+
+        function goWheel() {
+            document.getElementById('ask-stage').style.display = 'none';
+            document.getElementById('wheel-container').style.display = 'block';
+            drawLuxuryWheel();
+        }
+
+        function drawLuxuryWheel() {
+            const numSegments = 8, arc = Math.PI * 2 / numSegments;
+            ctx.clearRect(0, 0, 330, 330);
+            
+            for (let i = 0; i < numSegments; i++) {
+                // رسم المثلثات
+                ctx.beginPath(); 
+                ctx.fillStyle = colors[i]; 
+                ctx.moveTo(165, 165);
+                ctx.arc(165, 165, 145, i * arc, (i + 1) * arc); 
+                ctx.fill();
+                
+                // حفظ الحالة لكتابة النصوص بشكل متناسق وغير متبعثر
+                ctx.save();
+                ctx.fillStyle = colors[i] === "#e53935" ? "#ffffff" : "#222222";
+                ctx.font = "bold 12px 'Cairo', sans-serif"; 
+                ctx.translate(165, 165);
+                ctx.rotate(i * arc + arc / 2); 
+                ctx.textAlign = "right";
+                ctx.textBaseline = "middle";
+                ctx.fillText(segments[i], 130, 0); 
+                ctx.restore();
+            }
+            
+            // الإطار الذهبي الخارجي
+            ctx.beginPath(); 
+            ctx.strokeStyle = "#d4af37"; 
+            ctx.lineWidth = 10; 
+            ctx.arc(165, 165, 145, 0, Math.PI * 2); 
+            ctx.stroke();
+        }
+
+        function spin() {
+            if (isSpinning) return;
+            isSpinning = true;
+            document.getElementById('spin-btn').style.display = 'none';
+            document.getElementById('retry-btn').style.display = 'none';
+            document.getElementById('wheel-continue-btn').style.display = 'none';
+            document.getElementById('result').innerText = "";
+            
+            const fakeGoodIndex = goodIndices[Math.floor(Math.random() * goodIndices.length)];
+            const realBadIndex = badIndices[Math.floor(Math.random() * badIndices.length)];
+
+            const fakeDegrees = (4 * 360) + (270 - (fakeGoodIndex * 45) - 22.5);
+            const realDegrees = (5 * 360) + (270 - (realBadIndex * 45) - 22.5);
+
+            canvas.style.transition = "transform 3.5s cubic-bezier(0.15, 0.85, 0.35, 1)";
+            canvas.style.transform = `rotate(${fakeDegrees}deg)`;
+
+            setTimeout(() => {
+                canvas.style.transition = "transform 0.8s cubic-bezier(0.25, 1, 0.2, 1)";
+                canvas.style.transform = `rotate(${realDegrees}deg)`;
+            }, 3200);
+
+            setTimeout(() => {
+                attempt++; 
+                isSpinning = false;
+                if (attempt === 1) {
+                    document.getElementById('result').innerHTML = "Bad luck again! 😭<br><span style='color: #ff9800; font-size:1.1rem;'>But here's one more try! 🎁</span>";
+                    document.getElementById('retry-btn').style.display = 'inline-block';
+                } else {
+                    document.getElementById('result').innerHTML = "Happy Birthday, anyway! 😈🤣<br><span style='color: #d32f2f; font-size:1.1rem;'>I can't believe you fell for it twice!</span>";
+                    document.getElementById('wheel-continue-btn').style.display = 'inline-block';
+                }
+            }, 4200);
+        }
+
+        function goPart2Stage() {
+            document.getElementById('wheel-container').style.display = 'none';
+            document.getElementById('part2-stage').style.display = 'block';
+        }
+
+        function showPreFinal(choice) {
+            document.getElementById('part2-stage').style.display = 'none';
+            const msgBox = document.getElementById('pre-final-msg');
+            
+            if (choice === 'yes') {
+                msgBox.innerHTML = "Ohhh, next time I will take money 😑";
+                msgBox.style.color = "#2e7d32";
+            } else {
+                msgBox.innerHTML = "Haha, I will make it for you anyway! 😑😑";
+                msgBox.style.color = "#c62828";
+            }
+            
+            document.getElementById('pre-final-stage').style.display = 'block';
+        }
+
+        function triggerFinalGreetings() {
+            document.getElementById('pre-final-stage').style.display = 'none';
+            document.body.classList.remove('bg-original');
+            document.body.style.backgroundColor = '#140a0a';
+            document.getElementById('final-greetings').style.display = 'block';
+            setInterval(createRosePetal, 140);
+        }
+
+        function createRosePetal() {
+            const petal = document.createElement('div');
+            petal.classList.add('rose-petal');
+            petal.innerHTML = '🌹';
+            petal.style.left = Math.random() * 100 + 'vw';
+            petal.style.animationDuration = (Math.random() * 3 + 2) + 's';
+            petal.style.fontSize = (Math.random() * 0.8 + 1) + 'rem';
+            document.body.appendChild(petal);
+            setTimeout(() => { petal.remove(); }, 5000);
+        }
+    </script>
+</body>
+</html>
+    
+  </body>
+  
+</html>
